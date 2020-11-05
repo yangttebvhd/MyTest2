@@ -3,6 +3,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
+<!-- @Controller -->
+<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+<!-- @Autowired,@Required  -->
+<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
+<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+
 <!-- 5개의 구성요소에 해당되는 환경설정 -->
 <!-- (4)viewResolver(위치(prefix),이동할 페이지의 확장자(suffix)  -->
 <bean id="viewResolver"
@@ -20,7 +26,6 @@
 <bean id="boardDAO"  class="lee.SqlMapBoardDao">
   <property name="sqlSessionFactory" ref="sqlSessionFactory" />
 </bean>
-
 
 <!-- 1.글목록보기 (list()) setDao(BoardDAO객체)-->
 <bean name="/list.do"  class="lee.ListActionController">
@@ -73,6 +78,19 @@
      <ref bean="boardDAO" />
   </property>
 </bean> -->
+
+
+<bean id="detailDAO"  class="lee.SqlMapDetailDao">
+  <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+</bean>
+
+<!-- 9. 상품상세페이지로 이동 -->
+<bean name="/detail.do"  class="lee.DetailActionController">
+  <property name="dao">
+     <ref bean="detailDAO" />
+  </property>
+</bean>
+
 </beans>
 
 

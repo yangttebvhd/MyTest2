@@ -58,7 +58,7 @@
             <tr>
                  
                 <td colspan="2"  class="text-center">
-                    <input type="submit" value="글쓰기" class="btn btn-success">
+                    <input type="submit" value="글수정하기" class="btn btn-success">
                     <!-- <input type="reset" value="다시작성" class="btn btn-warning"> -->
                     <button type="button"  class="btn btn-primary"><a href="list.do">목록보기</a></button>
                 </td>

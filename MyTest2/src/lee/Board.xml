@@ -10,7 +10,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     select * from aft_board order by aft_num desc
  </select>
  
- 
  <!-- 
 2.글쓰기(게시물번호의 최대값) resultType(반환값이 있을때) parameterType(매개변수 O)
 <select id="getNewNum" resultType="int">
@@ -51,7 +50,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
      select * from springboard where ${searchName} like '%${searchValue}%'
      order by num desc
  </select> -->
- 
  
 </mapper>
 

@@ -7,9 +7,11 @@
  <configuration>
     <typeAliases>
         <typeAlias type="lee.BoardCommand"   alias="board" />
+         <typeAlias type="lee.DetailCommand"   alias="board2" />
     </typeAliases>
     
     <mappers>
            <mapper resource="lee/Board.xml" />
+           <mapper resource="lee/Detail.xml" />
     </mappers>
  </configuration>
