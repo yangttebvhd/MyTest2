@@ -9,6 +9,7 @@ public class BoardCommand {
 	String aft_content; //후기글 내용
 	String aft_date; //후기글 작성일자
 	String aft_pwd; //후기글 비밀번호
+	String aft_img; //후기글 첨부 이미지
 	public int getAft_num() {
 		return aft_num;
 	}
@@ -57,7 +58,12 @@ public class BoardCommand {
 	public void setAft_pwd(String aft_pwd) {
 		this.aft_pwd = aft_pwd;
 	}
-	
+	public String getAft_img() {
+		return aft_img;
+	}
+	public void setAft_img(String aft_img) {
+		this.aft_img = aft_img;
+	}
 	
 }
 

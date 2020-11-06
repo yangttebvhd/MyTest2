@@ -15,7 +15,7 @@
       class="org.springframework.web.servlet.view.InternalResourceViewResolver">
      <property name="viewClass" 
                    value="org.springframework.web.servlet.view.JstlView" />
-     <property name="prefix" value="/" />
+     <property name="prefix" value="./view/" />
      <property name="suffix" value=".jsp"></property>
  </bean>
 
@@ -28,7 +28,7 @@
 </bean>
 
 <!-- 1.글목록보기 (list()) setDao(BoardDAO객체)-->
-<bean name="/list.do"  class="lee.ListActionController">
+<bean name="/list.do"  class="controller.ListActionController">
   <property name="dao">
      <ref bean="boardDAO" />
   </property>
@@ -50,7 +50,7 @@
 -->
 
 <!-- 4.글상세보기  -->
-<bean name="/retrieve.do"  class="lee.RetrieveActionController">
+<bean name="/retrieve.do"  class="controller.RetrieveActionController">
   <property name="dao">
      <ref bean="boardDAO" />
   </property>
@@ -85,7 +85,7 @@
 </bean>
 
 <!-- 9. 상품상세페이지로 이동 -->
-<bean name="/detail.do"  class="lee.DetailActionController">
+<bean name="/detail.do"  class="controller.DetailActionController">
   <property name="dao">
      <ref bean="detailDAO" />
   </property>
