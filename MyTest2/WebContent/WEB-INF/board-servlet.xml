@@ -89,6 +89,9 @@
   <property name="dao">
      <ref bean="detailDAO" />
   </property>
+  <property name="dao2">
+     <ref bean="BoardDAO" />
+  </property>
 </bean>
 
 </beans>

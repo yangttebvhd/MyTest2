@@ -38,7 +38,7 @@
     <th  class="tg-oe15" rowspan="2" height="0"><div style="height:50px"><img src="../image/product1.jpg" height = "100%"></div></th>
     <th class="tg-oe15">Sf</th>
     <th class="tg-oe15">80000</th>
-    <th class="tg-oe15"><a href="writeui.do">후기작성</a></th>
+    <th class="tg-oe15"><a href="writeui.do?=주문번호">후기작성</a></th>
   </tr>
   <tr>
     <td class="tg-oe15">구매일자</td>
