@@ -8,9 +8,27 @@ import org.springframework.dao.DataAccessException;
 public class SqlMapDetailDao extends SqlSessionDaoSupport implements DetailDAO {
 
 	@Override
-	public List list2() throws DataAccessException {
+	public List prd_list() throws DataAccessException {
 		// TODO Auto-generated method stub
-		return getSqlSession().selectList("list2");
+		return getSqlSession().selectList("prd_list");
 	}
-
+	
+	@Override
+	public DetailCommand Sf(String Sf_prd_id) throws DataAccessException {
+		// TODO Auto-generated method stub
+		return (DetailCommand)getSqlSession().selectList("Sf",Sf_prd_id);
+	}
+	
+	@Override
+	public DetailCommand Mf(String Mf_prd_id) throws DataAccessException {
+		// TODO Auto-generated method stub
+		return (DetailCommand)getSqlSession().selectList("Mf",Mf_prd_id);
+	}
+	
+	@Override
+	public DetailCommand Lf(String Lf_prd_id) throws DataAccessException {
+		// TODO Auto-generated method stub
+		return (DetailCommand)getSqlSession().selectList("Lf",Lf_prd_id);
+	}
+	
 }
