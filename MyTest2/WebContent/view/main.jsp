@@ -30,7 +30,7 @@ body {	color: #fefefe}
 %>
 	<div class="prd_box">
 		<div class="btn">
-			<a href="toSf.do?Sf_prd_id=<%=prd_id%>"><%=prd_name %>상품으로 이동</a>
+			<a href="to<%=prd_id%>.do?prd_id=<%=prd_id%>"><%=prd_name %>상품으로 이동</a>
 		</div>
 	</div>
 <%

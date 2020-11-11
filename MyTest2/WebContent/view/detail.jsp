@@ -14,19 +14,15 @@
 <th>상품 아이디</th><th>상품명</th><th>상품사진</th><th>상품소개</th><th>상품가격</th>
 </tr>
 <%
-    ArrayList Sf=(ArrayList)request.getAttribute("Sf"); //${list}
-    System.out.println("Sf=>"+Sf);
-    if(Sf!=null){ //데이터가 존재한다면
-    	Iterator iter=Sf.iterator();//ArrayList->iterator()이용,Enumeration객체
-    	while(iter.hasNext()){//꺼낼 데이터가 존재한다면
-    		//Board data=(Board)iter.next();//Object->(Board)형으로 형변환
-    		DetailCommand data=(DetailCommand)iter.next();
-    		String prd_id=data.getPrd_id();
-    		String prd_name=data.getPrd_name();
-    		String prd_img=data.getPrd_img();
-    		String prd_intrdc=data.getPrd_intrdc();
-    		int prd_price=data.getPrd_price();
-    		System.out.println("prd_id");
+	DetailCommand Sf=(DetailCommand)request.getAttribute("Sf"); //${list}
+    System.out.println("detail.jsp의 Sf=>"+Sf);
+    
+    		String prd_id=Sf.getPrd_id();
+    			System.out.println("detail.jsp의 prd_id=>"+prd_id);
+    		String prd_name=Sf.getPrd_name();
+    		String prd_img=Sf.getPrd_img();
+    		String prd_intrdc=Sf.getPrd_intrdc();
+    		int prd_price=Sf.getPrd_price();
 %>
 	<tr>
 		<td align="center"><%=prd_id %></td>
@@ -34,23 +30,6 @@
 		<td><%=prd_img %></td>
 		<td><%=prd_intrdc %></td>
 		<td><%=prd_price%></td>
-	</tr>
-<%
-	}//end while
-}//end if
-%>
-<!-- 검색 기능 시작 -->
-	<tr>
-	<td colspan="5" align="center">
-		<form action="search.do">
-		   <select name="searchName" size="1">
-	               <option value="author">작성자</option>
-    	          <option value="title">제목</option>
-           </select>
-		   <input type="text" name="searchValue">
-		   <input type="submit" value="검색">
-		</form>
-	</td>
 	</tr>
 </table>
 <table border="3" cellpadding="10" cellspacing="10">
