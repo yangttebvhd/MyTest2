@@ -10,6 +10,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     select * from aft_board order by aft_num desc
  </select>
  
+ <!-- 5.게시물번호에 따른 레코드 한개 상세보기 -->
+<select id="retrieve"  parameterType="String" resultType="board">
+   select * from aft_board where aft_num=#{aft_num}
+</select>
+
+<!-- 1-1.Sf에 관한 글목록보기 -->
+<select id="SfBoardList" parameterType="String" resultType="board">
+    select * from aft_board
+ </select>
+ 
  <!-- 
 2.글쓰기(게시물번호의 최대값) resultType(반환값이 있을때) parameterType(매개변수 O)
 <select id="getNewNum" resultType="int">
@@ -28,11 +38,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     update springboard set readcnt=readcnt+1 where num=#{num}
 </update> -->
 
-
-<!-- 5.게시물번호에 따른 레코드 한개 상세보기 -->
-<select id="retrieve"  parameterType="String" resultType="board">
-   select * from aft_board where aft_num=#{aft_num}
-</select>
 <!-- 
 6.글삭제하기
 <delete id="delete" parameterType="String">

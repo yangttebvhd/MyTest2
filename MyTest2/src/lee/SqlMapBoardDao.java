@@ -11,6 +11,13 @@ public class SqlMapBoardDao extends SqlSessionDaoSupport implements BoardDAO {
 	public List list() throws DataAccessException {
 		return getSqlSession().selectList("list");
 	}
+	
+	@Override
+	public List SfBoardList(String Sf_prd_id) throws DataAccessException {
+		// TODO Auto-generated method stub
+		return getSqlSession().selectList("SfBoardList");
+	}
+	
 	@Override
 	public int getNewNum() throws DataAccessException {
 		return (Integer)getSqlSession().selectOne("getNewNum");

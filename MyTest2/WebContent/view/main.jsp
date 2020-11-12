@@ -25,7 +25,7 @@ body {	color: #fefefe}
     		DetailCommand data=(DetailCommand)iter.next();
     		String prd_id=data.getPrd_id();
     		String prd_name=data.getPrd_name();
-    		System.out.println("prd_id");
+    		System.out.println("main.jsp의 prd_id=>"+prd_id);
 
 %>
 	<div class="prd_box">
