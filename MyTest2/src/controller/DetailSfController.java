@@ -18,35 +18,25 @@ public class DetailSfController implements Controller {
 	@Autowired
 	BoardDAO boardDAO;
 	
-//	public void setDao(DetailDAO detailDAO) {
-//		this.detailDAO=detailDAO;
-//		System.out.println("DetailSfController의 DetailDAO setDao() 호출(detailDAO)=>"+detailDAO);
-//	}
-//	public void setDao(BoardDAO boardDAO) {
-//		this.boardDAO=boardDAO;
-//		System.out.println("DetailSfController의 boardDAO setDao() 호출(boardDAO)=>"+boardDAO);
-//	}
-
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, 
 			                                              HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("DetailSfController의 handleRequest() 호출");
 		
-		String Sf_prd_id=request.getParameter("prd_id");
-		System.out.println("DetailSfController의 Sf_prd_id=>"+Sf_prd_id);
+		//상품 id를 main으로부터 받아옴
+		String prd_id=request.getParameter("prd_id");
+		System.out.println("DetailSfController의 prd_id=>"+prd_id);
 		
-		DetailCommand Sf=(DetailCommand)detailDAO.Sf(Sf_prd_id);
-			System.out.println("어디서 뻑나는지 확인!1");
-		List SfBoardList=boardDAO.SfBoardList(Sf_prd_id);
-		System.out.println("어디서 뻑나는지 확인!2");
+		//BoardDAO와 DetailDAO의 메서드에 상품id를 넘겨줌
+		DetailCommand Sf=(DetailCommand)detailDAO.Sf(prd_id);
+		List SfBoardList=boardDAO.SfBoardList(prd_id);
+		System.out.println("DetailSfController의 SfBoardList"+SfBoardList);
 		
 		ModelAndView mav=new ModelAndView();
 		mav.setViewName("detail");
 		mav.addObject("Sf",Sf); //Sf상품정보
-			System.out.println("어디서 뻑나는지 확인!3");
 		mav.addObject("SfBoardList",SfBoardList); //Sf상품후기 게시글 리스트
-			System.out.println("어디서 뻑나는지 확인!4");
 		
 		System.out.println("DetailSfController의 Sf="+Sf);
 		return mav;

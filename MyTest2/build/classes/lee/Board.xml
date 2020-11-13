@@ -17,8 +17,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!-- 1-1.Sf에 관한 글목록보기 -->
 <select id="SfBoardList" parameterType="String" resultType="board">
-    select * from aft_board
- </select>
+    select * from aft_board where prd_id=#{prd_id,jdbcType=VARCHAR}
+</select>
  
  <!-- 
 2.글쓰기(게시물번호의 최대값) resultType(반환값이 있을때) parameterType(매개변수 O)

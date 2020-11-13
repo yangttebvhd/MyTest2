@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="java.util.*,lee.*" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html><body>
 <table border="1">
 	<tr>
@@ -46,7 +48,23 @@
 	</tr>
 </table>
 
-<!--//////////////////후기게시판추가//////////////-->
+	<div style="background-color:#f2f2f2; width: 940px; height: 100px;">
+	
+<!-- /////////////////////////////////////////////////////////// -->
+<form name="frm" method="post" action="cart.do">
+
+			최초수령일 <input required type="date">
+			<p>
+			구독주기 <select required name="job">
+						<option value="2">2주</option>
+						<option value="4">4주</option>
+						<option value="6">6주</option>
+					</select>
+		<input type="submit" value="submit">
+		</form>
+	</div>
+
+	<!--//////////////////후기게시판추가//////////////-->
 <table border="1">
 	<tr>
 	  <td align="center" colspan="5">
@@ -57,7 +75,8 @@
 <th>번호</th><th>제목</th><th>작성자</th><th>작성일</th>
 </tr>
 <%
-    ArrayList list=(ArrayList)request.getAttribute("SfBoardList"); //${list}
+    List list=(List)request.getAttribute("SfBoardList"); 
+	System.out.println("detail.jsp의 list"+list);
     if(list!=null){ //데이터가 존재한다면
     	Iterator iter=list.iterator();//ArrayList->iterator()이용,Enumeration객체
     	while(iter.hasNext()){//꺼낼 데이터가 존재한다면

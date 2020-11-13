@@ -14,21 +14,21 @@ public class SqlMapDetailDao extends SqlSessionDaoSupport implements DetailDAO {
 	}
 	
 	@Override
-	public DetailCommand Sf(String Sf_prd_id) throws DataAccessException {
+	public DetailCommand Sf(String prd_id) throws DataAccessException {
 		// TODO Auto-generated method stub
-		return (DetailCommand)getSqlSession().selectOne("Sf",Sf_prd_id);
+		return (DetailCommand)getSqlSession().selectOne("Sf",prd_id);
 	}
 	
 	@Override
-	public DetailCommand Mf(String Mf_prd_id) throws DataAccessException {
+	public DetailCommand Mf(String prd_id) throws DataAccessException {
 		// TODO Auto-generated method stub
-		return (DetailCommand)getSqlSession().selectOne("Mf",Mf_prd_id);
+		return (DetailCommand)getSqlSession().selectOne("Mf",prd_id);
 	}
 	
 	@Override
-	public DetailCommand Lf(String Lf_prd_id) throws DataAccessException {
+	public DetailCommand Lf(String prd_id) throws DataAccessException {
 		// TODO Auto-generated method stub
-		return (DetailCommand)getSqlSession().selectOne("Lf",Lf_prd_id);
+		return (DetailCommand)getSqlSession().selectOne("Lf",prd_id);
 	}
 	
 }
