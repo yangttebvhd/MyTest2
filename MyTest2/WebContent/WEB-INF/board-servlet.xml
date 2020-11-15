@@ -26,6 +26,13 @@
 <bean id="boardDAO"  class="lee.SqlMapBoardDao">
   <property name="sqlSessionFactory" ref="sqlSessionFactory" />
 </bean>
+<bean id="detailDAO"  class="lee.SqlMapDetailDao">
+  <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+</bean>
+<bean id="cartDAO" class="lee.SqlMapCartDao">
+  <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+</bean>
+
 
 <!-- 1.글목록보기 (list()) setDao(BoardDAO객체)-->
 <bean name="/list.do"  class="controller.ListActionController">
@@ -56,40 +63,27 @@
   </property>
 </bean>
 
-<!--
-5.글수정하기(BoardDAO (update()) 
-<bean name="/update.do"  class="lee.UpdateActionController">
+<!-- 9. 상품상세페이지로 이동 -->
+<!-- <bean name="/detail.do"  class="controller.DetailActionController">
   <property name="dao">
-     <ref bean="boardDAO" />
-  </property>
-  <property name="commandClass" value="lee.BoardCommand" />
-</bean>
-
-6.글삭제하기 
-<bean name="/delete.do"  class="lee.DeleteActionController">
-  <property name="dao">
-     <ref bean="boardDAO" />
-  </property>
-</bean>
-
-7.글검색하기 
-<bean name="/search.do"  class="lee.SearchActionController">
-  <property name="dao">
-     <ref bean="boardDAO" />
+     <ref bean="detailDAO" />
   </property>
 </bean> -->
 
+<!-- 9-1. 상품의 상세페이지로 이동 -->
+<bean name="/toSf.do"  class="controller.DetailController" />
+<bean name="/toMf.do"  class="controller.DetailController" />
+<bean name="/toLf.do"  class="controller.DetailController" />
 
-<bean id="detailDAO"  class="lee.SqlMapDetailDao">
-  <property name="sqlSessionFactory" ref="sqlSessionFactory" />
-</bean>
-
-<!-- 9. 상품상세페이지로 이동 -->
-<bean name="/detail.do"  class="controller.DetailActionController">
+<!-- 10. 메인페이지로 이동 -->
+<bean name="/main.do"  class="controller.MainActionController">
   <property name="dao">
      <ref bean="detailDAO" />
   </property>
 </bean>
+
+<!-- 11.카트 페이지로 이동 -->
+<bean name="/cart.do"  class="controller.CartActionController" />
 
 </beans>
 

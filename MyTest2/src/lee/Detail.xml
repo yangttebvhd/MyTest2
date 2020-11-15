@@ -5,16 +5,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="board2">
  
- <!-- 상품 Sf에 대한 리스트 불러오기 -->
- <select id="Sf" resultType="board2">
-    select * from prd where prd_id='Sf'
+ <!-- 상품 전체에 대한 리스트 불러오기 -->
+  <select id="prd_list" resultType="board2">
+    select * from prd
  </select>
  
+ <!-- 상품에 대한 리스트 불러오기 -->
+ <select id="prd" parameterType="String" resultType="board2">
+    select * from prd where prd_id=#{prd_id}
+ </select>
+ 
+ 
 </mapper>
-
-
-
-
-
-
-
