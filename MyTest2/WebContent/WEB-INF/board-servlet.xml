@@ -29,6 +29,9 @@
 <bean id="detailDAO"  class="lee.SqlMapDetailDao">
   <property name="sqlSessionFactory" ref="sqlSessionFactory" />
 </bean>
+<bean id="cartDAO" class="lee.SqlMapCartDao">
+  <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+</bean>
 
 
 <!-- 1.글목록보기 (list()) setDao(BoardDAO객체)-->
@@ -67,8 +70,10 @@
   </property>
 </bean> -->
 
-<!-- 9-1. Sf상품의 상세페이지로 이동 -->
-<bean name="/toSf.do"  class="controller.DetailSfController" />
+<!-- 9-1. 상품의 상세페이지로 이동 -->
+<bean name="/toSf.do"  class="controller.DetailController" />
+<bean name="/toMf.do"  class="controller.DetailController" />
+<bean name="/toLf.do"  class="controller.DetailController" />
 
 <!-- 10. 메인페이지로 이동 -->
 <bean name="/main.do"  class="controller.MainActionController">
@@ -76,6 +81,9 @@
      <ref bean="detailDAO" />
   </property>
 </bean>
+
+<!-- 11.카트 페이지로 이동 -->
+<bean name="/cart.do"  class="controller.CartActionController" />
 
 </beans>
 

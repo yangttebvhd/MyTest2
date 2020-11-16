@@ -13,10 +13,10 @@ public class SqlMapBoardDao extends SqlSessionDaoSupport implements BoardDAO {
 	}
 	
 	@Override
-	public List SfBoardList(String prd_id) throws DataAccessException {
+	public List PrdBoardList(String prd_id) throws DataAccessException {
 		// TODO Auto-generated method stub
 		System.out.println("SqlMapBoardDao가 받은 매개변수 prd_id=>"+prd_id);
-		return getSqlSession().selectList("SfBoardList",prd_id);
+		return getSqlSession().selectList("PrdBoardList",prd_id);
 	}
 	
 	@Override

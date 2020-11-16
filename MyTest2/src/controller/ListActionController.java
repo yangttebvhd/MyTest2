@@ -16,7 +16,7 @@ public class ListActionController implements Controller {
 	
 	public void setDao(BoardDAO dao) {//<property name="dao"><ref bean="idï§ï¿½" />~
 		this.dao=dao;
-		System.out.println("setDao() í˜¸ì¶œ(dao)=>"+dao);
+		System.out.println("ListActionControllerÀÇ setDao()È£Ãâ (dao)=>"+dao);
 	}
 
 	@Override
@@ -24,7 +24,7 @@ public class ListActionController implements Controller {
 			                                              HttpServletResponse response) throws Exception {
 		
 		// TODO Auto-generated method stub
-		System.out.println("ListActionController handleRequest() í˜¸ì¶œ");
+		System.out.println("ListActionController handleRequest() È£Ãâ");
 		List list=dao.list();
 		ModelAndView mav=new ModelAndView();
 		mav.setViewName("list");

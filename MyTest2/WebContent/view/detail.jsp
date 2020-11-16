@@ -3,6 +3,7 @@
 <%@page import="java.util.*,lee.*" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html><body>
 <table border="1">
 	<tr>
@@ -15,16 +16,25 @@
 	<tr>
 <th>상품 아이디</th><th>상품명</th><th>상품사진</th><th>상품소개</th><th>상품가격</th>
 </tr>
+<%-- <c:forEach var="article" items="${prd}">
+	<tr>
+		<td align="center">${prd_id}</td>
+		<td><a href="toBuy.do?prd_id=${prd_name}">${prd_name}</a></td>
+		<td>${prd_img}</td>
+		<td>${prd_intrdc}</td>
+		<td>${prd_price}</td>
+	</tr>
+</c:forEach> --%>
 <%
-	DetailCommand Sf=(DetailCommand)request.getAttribute("Sf"); //${list}
-    System.out.println("detail.jsp의 Sf=>"+Sf);
+	DetailCommand prd=(DetailCommand)request.getAttribute("prd"); //${list}
+    System.out.println("detail.jsp의 prd=>"+prd);
     
-    		String prd_id=Sf.getPrd_id();
+    		String prd_id=prd.getPrd_id();
     			System.out.println("detail.jsp의 prd_id=>"+prd_id);
-    		String prd_name=Sf.getPrd_name();
-    		String prd_img=Sf.getPrd_img();
-    		String prd_intrdc=Sf.getPrd_intrdc();
-    		int prd_price=Sf.getPrd_price();
+    		String prd_name=prd.getPrd_name();
+    		String prd_img=prd.getPrd_img();
+    		String prd_intrdc=prd.getPrd_intrdc();
+    		int prd_price=prd.getPrd_price();
 %>
 	<tr>
 		<td align="center"><%=prd_id %></td>
@@ -34,12 +44,11 @@
 		<td><%=prd_price%></td>
 	</tr>
 </table>
+
+<!-- /////////////////////////테이블에 이미지 넣기 테스트//////////////////////// -->
 <table border="3" cellpadding="10" cellspacing="10">
 	<tr>
-		<!-- <td stlye="background-image:url('C:\webtest\0.project\image\상품\product1.jpg')">1</td> -->
-		<!-- <td background="C:\webtest\0.project\image\상품\product1.jpg">1</td> -->
-		<!-- <td><img src="./image/product1.jpg" height = "100%"></td> -->
-		<td height="0"><div style="height:50px"><img src="../image/product1.jpg" height = "100%"></div></td>
+		<td height="0"><div style="height:50px"><img src=<%=prd_img %> height = "100%"></div></td>
 		<td bgcolor="red">2</td>
 	</tr>
 	<tr>
@@ -50,17 +59,21 @@
 
 	<div style="background-color:#f2f2f2; width: 940px; height: 100px;">
 	
-<!-- /////////////////////////////////////////////////////////// -->
+<!-- //////////////////////상품 카트에 추가하기///////////////////////////////////// -->
 <form name="frm" method="post" action="cart.do">
 
-			최초수령일 <input required type="date">
-			<p>
-			구독주기 <select required name="job">
+	<input type="hidden" name="mem_id" value="test1">
+	<input type="hidden" name="prd_id" value=<%=prd_id %>>
+
+			최초수령일 <input required type="date" name="cart_takedate">
+			<p />
+			구독주기 <select required name="cart_cycle">
 						<option value="2">2주</option>
 						<option value="4">4주</option>
 						<option value="6">6주</option>
 					</select>
-		<input type="submit" value="submit">
+		<input type="submit" value="카트에 담기" formaction="cart.do">
+		<input type="submit" value="구매하기" formaction="pay.do">
 		</form>
 	</div>
 
@@ -75,7 +88,7 @@
 <th>번호</th><th>제목</th><th>작성자</th><th>작성일</th>
 </tr>
 <%
-    List list=(List)request.getAttribute("SfBoardList"); 
+    List list=(List)request.getAttribute("PrdBoardList"); 
 	System.out.println("detail.jsp의 list"+list);
     if(list!=null){ //데이터가 존재한다면
     	Iterator iter=list.iterator();//ArrayList->iterator()이용,Enumeration객체
@@ -107,15 +120,5 @@ height:150px;
 width:100px;
 ">
 </div>
-
-<div>
-<img src="C:\webtest\0.project\image\상품\product1.jpg" height = "500px">
-</div>
-
-<img src="C:/webtest/0.project/image/상품/product1.jpg" width="300" height="309" border="0" alt="">
-<img src="C:\webtest\0.project\image\상품\product1.jpg" width="300" height="300" border="0" alt="">
-<img src="http://localhost:8090/C://webtest//0.project//image//상품//product1.jpg" width="300" height="300" border="0" alt="">
-
-<img src="file:///C:/webtest/0.project/image/%EC%83%81%ED%92%88/product1.jpg" width="300" height="300" border="0" alt="">
 
 </body></html>

@@ -7,7 +7,7 @@ import org.springframework.dao.DataAccessException;
 public interface BoardDAO{
 	public List list() throws DataAccessException;
 	
-	public List SfBoardList(String prd_id) throws DataAccessException;
+	public List PrdBoardList(String prd_id) throws DataAccessException;
 	
 	public int getNewNum() throws DataAccessException;
 	

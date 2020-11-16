@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </select>
 
 <!-- 1-1.Sf에 관한 글목록보기 -->
-<select id="SfBoardList" parameterType="String" resultType="board">
+<select id="PrdBoardList" parameterType="String" resultType="board">
     select * from aft_board where prd_id=#{prd_id,jdbcType=VARCHAR}
 </select>
  
