@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 <!-- @Controller -->
-<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+
 <!-- @Autowired,@Required  -->
 <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
 <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
@@ -40,21 +40,6 @@
      <ref bean="boardDAO" />
   </property>
 </bean>
-  
-<!-- 2.글쓰기 폼으로 이동시 사용
-<bean name="/writeui.do"  
-          class="org.springframework.web.servlet.mvc.ParameterizableViewController">
-         <property name="viewName" value="write" />
-</bean>
-
-3.글쓰기(글수정하기와 거의 유사)
-<bean name="/write.do"  class="lee.WriteActionController">
-  <property name="dao">
-     <ref bean="boardDAO" />
-  </property>
-  <property name="commandClass" value="lee.BoardCommand" />
-</bean>
--->
 
 <!-- 4.글상세보기  -->
 <bean name="/retrieve.do"  class="controller.RetrieveActionController">
@@ -62,13 +47,6 @@
      <ref bean="boardDAO" />
   </property>
 </bean>
-
-<!-- 9. 상품상세페이지로 이동 -->
-<!-- <bean name="/detail.do"  class="controller.DetailActionController">
-  <property name="dao">
-     <ref bean="detailDAO" />
-  </property>
-</bean> -->
 
 <!-- 9-1. 상품의 상세페이지로 이동 -->
 <bean name="/toSf.do"  class="controller.DetailController" />
@@ -83,7 +61,14 @@
 </bean>
 
 <!-- 11.카트 페이지로 이동 -->
-<bean name="/cart.do"  class="controller.CartActionController" />
+<bean name="/cart.do" class="controller.CartActionController" />
+
+<!-- 12.카트 삭제 기능 후 원래 리스트로 돌아감 -->
+<bean name="/cartCancle.do"  class="controller.CancleActionController">
+  <property name="cartDAO">
+     <ref bean="cartDAO" />
+  </property>
+</bean>
 
 </beans>
 
