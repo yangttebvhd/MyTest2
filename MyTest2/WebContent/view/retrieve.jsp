@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="org.apache.catalina.connector.OutputBuffer"%>
-<%@ page import="lee.*" %>
+<%@ page import="com.dto.*" %>
 <%
      //Board data=(Board)request.getAttribute("data");//${data(키명)}
      BoardCommand data=(BoardCommand)request.getAttribute("data");

@@ -23,48 +23,48 @@
 <bean id="defaultHandlerMapping" 
          class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
 
-<bean id="boardDAO"  class="lee.SqlMapBoardDao">
+<bean id="boardDAO"  class="com.dao.SqlMapBoardDao">
   <property name="sqlSessionFactory" ref="sqlSessionFactory" />
 </bean>
-<bean id="detailDAO"  class="lee.SqlMapDetailDao">
+<bean id="detailDAO"  class="com.dao.SqlMapDetailDao">
   <property name="sqlSessionFactory" ref="sqlSessionFactory" />
 </bean>
-<bean id="cartDAO" class="lee.SqlMapCartDao">
+<bean id="cartDAO" class="com.dao.SqlMapCartDao">
   <property name="sqlSessionFactory" ref="sqlSessionFactory" />
 </bean>
 
 
 <!-- 1.글목록보기 (list()) setDao(BoardDAO객체)-->
-<bean name="/list.do"  class="controller.ListActionController">
+<bean name="/list.do"  class="com.controller.ListActionController">
   <property name="dao">
      <ref bean="boardDAO" />
   </property>
 </bean>
 
 <!-- 4.글상세보기  -->
-<bean name="/retrieve.do"  class="controller.RetrieveActionController">
+<bean name="/retrieve.do"  class="com.controller.RetrieveActionController">
   <property name="dao">
      <ref bean="boardDAO" />
   </property>
 </bean>
 
 <!-- 9-1. 상품의 상세페이지로 이동 -->
-<bean name="/toSf.do"  class="controller.DetailController" />
-<bean name="/toMf.do"  class="controller.DetailController" />
-<bean name="/toLf.do"  class="controller.DetailController" />
+<bean name="/toSf.do"  class="com.controller.DetailController" />
+<bean name="/toMf.do"  class="com.controller.DetailController" />
+<bean name="/toLf.do"  class="com.controller.DetailController" />
 
 <!-- 10. 메인페이지로 이동 -->
-<bean name="/main.do"  class="controller.MainActionController">
+<bean name="/main.do"  class="com.controller.MainActionController">
   <property name="dao">
      <ref bean="detailDAO" />
   </property>
 </bean>
 
 <!-- 11.카트 페이지로 이동 -->
-<bean name="/cart.do" class="controller.CartActionController" />
+<bean name="/cart.do" class="com.controller.CartActionController" />
 
 <!-- 12.카트 삭제 기능 후 원래 리스트로 돌아감 -->
-<bean name="/cartCancle.do"  class="controller.CancleActionController">
+<bean name="/cartCancle.do"  class="com.controller.CancleActionController">
   <property name="cartDAO">
      <ref bean="cartDAO" />
   </property>
