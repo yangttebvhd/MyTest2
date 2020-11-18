@@ -17,7 +17,7 @@ public class SqlMapBoardDao extends SqlSessionDaoSupport implements BoardDAO {
 	@Override
 	public List PrdBoardList(String prd_id) throws DataAccessException {
 		// TODO Auto-generated method stub
-		System.out.println("SqlMapBoardDao°¡ ¹ÞÀº ¸Å°³º¯¼ö prd_id=>"+prd_id);
+		System.out.println("SqlMapBoardDaoì—ì„œ ë§¤ê°œë³€ìˆ˜ë¡œ ë°›ì€ prd_id=>"+prd_id);
 		return getSqlSession().selectList("PrdBoardList",prd_id);
 	}
 	

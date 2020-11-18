@@ -22,23 +22,23 @@ public class DetailController implements Controller {
 	public ModelAndView handleRequest(HttpServletRequest request, 
 			                                              HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("DetailControllerÀÇ handleRequest() È£Ãâ");
+			System.out.println("DetailControllerì˜ handleRequest() í˜¸ì¶œ");
 		
-		//»óÇ° id¸¦ mainÀ¸·ÎºÎÅÍ ¹Ş¾Æ¿È
+		//ìƒí’ˆ idë¥¼ mainìœ¼ë¡œë¶€í„° ë°›ì•„ì˜´
 		String prd_id=request.getParameter("prd_id");
-		System.out.println("DetailControllerÀÇ prd_id=>"+prd_id);
+			System.out.println("DetailControllerì˜ prd_id=>"+prd_id);
 		
-		//BoardDAO¿Í DetailDAOÀÇ ¸Ş¼­µå¿¡ »óÇ°id¸¦ ³Ñ°ÜÁÜ
+		//BoardDAOì™€ DetailDAOì˜ ë©”ì„œë“œì— ìƒí’ˆidë¥¼ ë„˜ê²¨ì¤Œ
 		DetailCommand prd=(DetailCommand)detailDAO.prd(prd_id);
 		List PrdBoardList=boardDAO.PrdBoardList(prd_id);
-		System.out.println("DetailControllerÀÇ PrdBoardList"+PrdBoardList);
+			System.out.println("DetailControllerì˜ PrdBoardList"+PrdBoardList);
 		
 		ModelAndView mav=new ModelAndView();
 		mav.setViewName("detail");
-		mav.addObject("prd",prd); //Sf»óÇ°Á¤º¸
-		mav.addObject("PrdBoardList",PrdBoardList); //Sf»óÇ°ÈÄ±â °Ô½Ã±Û ¸®½ºÆ®
+		mav.addObject("prd",prd); //Sfìƒí’ˆì •ë³´
+		mav.addObject("PrdBoardList",PrdBoardList); //Sfìƒí’ˆí›„ê¸° ê²Œì‹œê¸€ ë¦¬ìŠ¤íŠ¸
 		
-		System.out.println("DetailControllerÀÇ prd="+prd);
+			System.out.println("DetailControllerì˜ prd="+prd);
 		return mav;
 	}
 }

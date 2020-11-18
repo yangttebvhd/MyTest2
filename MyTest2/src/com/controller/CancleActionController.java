@@ -15,13 +15,13 @@ public class CancleActionController implements Controller {
 	CartDAO cartDAO;
 	public void setCartDAO(CartDAO cartDAO) {
 		this.cartDAO=cartDAO;
-		System.out.println("CancleActionControllerÀÇ setDao() =>"+cartDAO);
+		System.out.println("CancleActionControllerÃ€Ã‡ setDao() =>"+cartDAO);
 	}
 	
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("CancleActionControllerÀÇ handleRequest½ÇÇà");
+		System.out.println("CancleActionControllerÃ€Ã‡ handleRequestÂ½Ã‡Ã‡Ã ");
 		int cart_num=Integer.parseInt(request.getParameter("cart_num"));
-		System.out.println("CancleActionControllerÀÇ cart_num=>"+cart_num);
+		System.out.println("CancleActionControllerÃ€Ã‡ cart_num=>"+cart_num);
 		
 		cartDAO.deleteCart(cart_num);
 		ModelAndView mav = new ModelAndView();

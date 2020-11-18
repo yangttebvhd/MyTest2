@@ -24,65 +24,66 @@ public class CartActionController {
 	
 	@RequestMapping(value="/cart.do", method=RequestMethod.GET)
 	public ModelAndView form() {
-		int count=cartDAO.getNewSeq(); //ÃÑ·¹ÄÚµå ¼ö¸¦ ±¸ÇØ¿È
+		int count=cartDAO.getNewSeq(); //ì´ë ˆì½”ë“œ ìˆ˜ë¥¼ êµ¬í•´ì˜´
 		
-		//List °´Ã¼ list¿¡ ³»¿ëÀ» ´ã¾Æ¿È
+		//List ê°ì²´ listì— ë‚´ìš©ì„ ë‹´ì•„ì˜´
 		List<CartCommand> list=null;
 		if(count>0) {
 			list=cartDAO.list();
-			System.out.println("CartActionControllerÀÇ GET list Ãâ·Â"+list);
-		}else { //0ÀÌ¶ó¸é 
-			list=Collections.EMPTY_LIST; //¾Æ¹«°Íµµ ¾ø´Ù
+			System.out.println("CartActionControllerì˜ GET list ì¶œë ¥"+list);
+		}else { //0ì´ë¼ë©´ 
+			list=Collections.EMPTY_LIST; //ì•„ë¬´ê²ƒë„ ì—†ë‹¤
 		}
 		
-		ModelAndView mav=new ModelAndView("cart"); //"ÀÌµ¿ÆäÀÌÁö¸í"
-		mav.addObject("count",count); //ÃÑ·¹ÄÚµå¼ö
-		mav.addObject("list",list); //Àå¹Ù±¸´Ï ¸®½ºÆ®
+		ModelAndView mav=new ModelAndView("cart"); //"ì´ë™í˜ì´ì§€ëª…"
+		mav.addObject("count",count); //ì´ë ˆì½”ë“œìˆ˜
+		mav.addObject("list",list); //ì¥ë°”êµ¬ë‹ˆ ë¦¬ìŠ¤íŠ¸
 		return mav;
 	}
 	
 	@RequestMapping(value="/cart.do", method=RequestMethod.POST)
 	public ModelAndView submit(@ModelAttribute("command") CartCommand command) {
-		System.out.println("CartAcitonControllerÀÇ POST submit() ½ÇÇà");
+		System.out.println("CartAcitonControllerì˜ POST submit() ì‹¤í–‰");
+		System.out.println("(CartActionController) : detail.jspì—ì„œ ë„˜ì–´ì˜¨ ë§¤ê°œë³€ìˆ˜ command"+command);
 		
-		/* prd_id¸¦ ³Ñ°Ü¹Ş¾Æ¿Ã ÇÊ¿ä°¡ ¾ø´Ù.
-		 * //prd_id¸¦ »ç¿ëÇÏ¿© prdÅ×ÀÌºí¿¡¼­ prd_name, prd_img, prd_price¸¦ °¡Á®¿À±â
-		 * System.out.println("command°´Ã¼¿¡ prd_id°¡ ³Ñ¾î¿Ô´ÂÁö È®ÀÎ=>"+command.getPrd_id()); //Sf
+		/* prd_idë¥¼ ë„˜ê²¨ë°›ì•„ì˜¬ í•„ìš”ê°€ ì—†ë‹¤.
+		 * //prd_idë¥¼ ì‚¬ìš©í•˜ì—¬ prdí…Œì´ë¸”ì—ì„œ prd_name, prd_img, prd_priceë¥¼ ê°€ì ¸ì˜¤ê¸°
+		 * System.out.println("commandê°ì²´ì— prd_idê°€ ë„˜ì–´ì™”ëŠ”ì§€ í™•ì¸=>"+command.getPrd_id()); //Sf
 		 * String prd_id=command.getPrd_id(); DetailCommand
 		 * prd=(DetailCommand)detailDAO.prd(prd_id);
 		 */
 		
-		//Date·Î ³Ñ¾î¿Â °Í Âï¾îº¸±â
-		/* System.out.println("cart_takedate Âï¾îº¸±â=>"+command.getCart_takedate()); */
+		//Dateë¡œ ë„˜ì–´ì˜¨ ê²ƒ ì°ì–´ë³´ê¸°
+		/* System.out.println("cart_takedate ì°ì–´ë³´ê¸°=>"+command.getCart_takedate()); */
 		
-		int count=cartDAO.getNewSeq(); //ÃÑ·¹ÄÚµå ¼ö¸¦ ±¸ÇØ¿È
+		int count=cartDAO.getNewSeq(); //ì´ë ˆì½”ë“œ ìˆ˜ë¥¼ êµ¬í•´ì˜´
 		
-		//List °´Ã¼ list¿¡ ³»¿ëÀ» ´ã¾Æ¿È
+		//List ê°ì²´ listì— ë‚´ìš©ì„ ë‹´ì•„ì˜´
 		List<CartCommand> list=null;
 		if(count>0) {
 			list=cartDAO.list();
-			System.out.println("CartActionControllerÀÇ list Ãâ·Â"+list);
-		}else { //0ÀÌ¶ó¸é 
-			list=Collections.EMPTY_LIST; //¾Æ¹«°Íµµ ¾ø´Ù
+			System.out.println("CartActionControllerì˜ list ì¶œë ¥"+list);
+		}else { //0ì´ë¼ë©´ 
+			list=Collections.EMPTY_LIST; //ì•„ë¬´ê²ƒë„ ì—†ë‹¤
 		}
 		
-		//»õ·Î¿î Àå¹Ù±¸´Ï Ç×¸ñÀÌ Ãß°¡µÊ
-		//ÃÖ´ë ±Û¹øÈ£+1
+		//ìƒˆë¡œìš´ ì¥ë°”êµ¬ë‹ˆ í•­ëª©ì´ ì¶”ê°€ë¨
+		//ìµœëŒ€ ê¸€ë²ˆí˜¸+1
 		int newSeq=cartDAO.getNewSeq()+1;
-			System.out.println("cart_numÀÇ ÃÖ´ë°ª+1 ·Îµå=>"+newSeq);
-		//dto¿¡ +1µÈ cart_numÀ» ÀúÀå
+			System.out.println("cart_numì˜ ìµœëŒ€ê°’+1 ë¡œë“œ=>"+newSeq);
+		//dtoì— +1ëœ cart_numì„ ì €ì¥
 		command.setCart_num(newSeq);
 		command.setCart_cancle("0");
-		//insert È£Ãâ
+		//insert í˜¸ì¶œ
 	System.out.println("1");
-		cartDAO.insert(command); //DB¿¡ ¹İ¿µ
+		cartDAO.insert(command); //DBì— ë°˜ì˜
 	System.out.println("2");
 		
-		ModelAndView mav=new ModelAndView("cart"); //"ÀÌµ¿ÆäÀÌÁö¸í"
+		ModelAndView mav=new ModelAndView("cart"); //"ì´ë™í˜ì´ì§€ëª…"
 	System.out.println("3");
-		mav.addObject("count",count); //ÃÑ·¹ÄÚµå¼ö
+		mav.addObject("count",count); //ì´ë ˆì½”ë“œìˆ˜
 	System.out.println("4");
-		mav.addObject("list",list); //Àå¹Ù±¸´Ï ¸®½ºÆ®
+		mav.addObject("list",list); //ì¥ë°”êµ¬ë‹ˆ ë¦¬ìŠ¤íŠ¸
 		/* mav.addObject("prd",prd); */
 	System.out.println("5");
 		return mav;

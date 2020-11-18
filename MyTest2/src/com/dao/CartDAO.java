@@ -8,15 +8,15 @@ import org.springframework.stereotype.Repository;
 import com.dto.CartCommand;
 
 public interface CartDAO {
-	//Ä«Æ®ÀÇ ÀüÃ¼ ¸®½ºÆ® ·Îµå
+	//ì¹´íŠ¸ì˜ ì „ì²´ ë¦¬ìŠ¤íŠ¸ ë¡œë“œ
 	public List<CartCommand> list() throws DataAccessException;
 	
-	//Ä«Æ®ÀÇ ÃÖ´ë°ª ±¸ÇÔ
+	//ì¹´íŠ¸ì˜ ìµœëŒ€ê°’ êµ¬í•¨
 	public int getNewSeq();
 	
-	//Ä«Æ®¿¡ °ªÀ» ÀúÀå
+	//ì¹´íŠ¸ì— ê°’ì„ ì €ì¥
 	public void insert(CartCommand command) throws DataAccessException;
 	
-	//Ä«Æ® »èÁ¦
+	//ì¹´íŠ¸ ì‚­ì œ
 	public void deleteCart(int cart_num) throws DataAccessException;
 }

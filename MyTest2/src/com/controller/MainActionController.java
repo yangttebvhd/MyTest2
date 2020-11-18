@@ -15,7 +15,7 @@ public class MainActionController implements Controller {
 	
 	public void setDao(DetailDAO dao) {
 		this.dao=dao;
-		System.out.println("MainActionController�쓽 setDao() �샇?���?(dao)=>"+dao);
+		System.out.println("MainActionController의 setDao() 호출 (dao)=>"+dao);
 	}
 
 	@Override
@@ -23,7 +23,7 @@ public class MainActionController implements Controller {
 			                                              HttpServletResponse response) throws Exception {
 		
 		// TODO Auto-generated method stub
-		System.out.println("MainActionController�쓽 handleRequest() �샇?���?");
+		System.out.println("MainActionController의 handleRequest() 호출");
 		List prd_list=dao.prd_list();
 		ModelAndView mav=new ModelAndView();
 		mav.setViewName("main");

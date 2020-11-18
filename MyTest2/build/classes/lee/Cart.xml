@@ -26,7 +26,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    delete from cart where cart_num=#{cart_num,jdbcType=INTEGER}
 </delete>
 
- 
  <!-- 1.장바구니 목록보기 after -->
 <resultMap type="command" id="command" >
           <id column="mem_id" property="mem_id" />
@@ -48,6 +47,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id="cartlist" resultMap="command">
     select cart.prd_id, prd_name, prd_img, prd_price, mem_id, cart_num, cart_cancle, cart_takedate, cart_cycle from prd, cart where (prd.prd_id=cart.prd_id) order by cart_num desc
 </select>
+
  
 </mapper>
 

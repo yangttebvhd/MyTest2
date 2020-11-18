@@ -7,9 +7,9 @@ import org.springframework.dao.DataAccessException;
 import com.dto.DetailCommand;
 
 public interface DetailDAO {
-	//0. ÀüÃ¼ ¸®½ºÆ®º¸±â
+	//0. ì „ì²´ ë¦¬ìŠ¤íŠ¸ë³´ê¸°
 	public List prd_list() throws DataAccessException;
 	
-	//1.»óÇ° »ó¼¼ ÆäÀÌÁö º¸±â
+	//1.ìƒí’ˆ ìƒì„¸ í˜ì´ì§€ ë³´ê¸°
 	public DetailCommand prd(String prd_id) throws DataAccessException;
 }

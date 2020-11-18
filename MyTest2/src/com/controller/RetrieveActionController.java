@@ -15,7 +15,7 @@ public class RetrieveActionController implements Controller {
 	
 	public void setDao(BoardDAO dao) {
 		this.dao=dao;
-		System.out.println("RetrieveActionController.javaÀÇ setDao()½ÇÇàµÊ (dao)=>"+dao);
+		System.out.println("RetrieveActionController.javaì˜ setDao()ì‹¤í–‰ë¨ (dao)=>"+dao);
 	}
 
 	@Override
@@ -23,10 +23,10 @@ public class RetrieveActionController implements Controller {
 			                                              HttpServletResponse response) throws Exception {
 		
 		// TODO Auto-generated method stub
-		System.out.println("RetrieveActionControllerÀÇ handleRequest()½ÇÇàµÊ");
+		System.out.println("RetrieveActionControllerì˜ handleRequest()ì‹¤í–‰ë¨");
 		
-		//Á¶È¸¼ö ±â´ÉÀÌ ¾øÀ¸¹Ç·Î »èÁ¦
-		//¾Æ´Ï´Ù ÀÌ°Å´Â Á¶È¸¼ö°¡ ¾Æ´Ï¶ó ±Û¹øÈ£¿´À½
+		//ì¡°íšŒìˆ˜ ê¸°ëŠ¥ì´ ì—†ìœ¼ë¯€ë¡œ ì‚­ì œ
+		//ì•„ë‹ˆë‹¤ ì´ê±°ëŠ” ì¡°íšŒìˆ˜ê°€ ì•„ë‹ˆë¼ ê¸€ë²ˆí˜¸ì˜€ìŒ
 		String num=request.getParameter("num");
 		//dao.updateReadcnt(num);//readcnt=readcnt+1
 		BoardCommand data=dao.retrieve(num);
@@ -35,8 +35,3 @@ public class RetrieveActionController implements Controller {
 		return mav; 
 	}
 }
-
-
-
-
-
