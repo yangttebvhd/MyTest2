@@ -18,8 +18,7 @@ public class CancleActionController implements Controller {
 		System.out.println("CancleActionController의 setDao() =>"+cartDAO);
 	}
 	
-	public ModelAndView handleRequest(HttpServletRequest request, 
-            HttpServletResponse response) throws Exception {
+	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("CancleActionController의 handleRequest실행");
 		int cart_num=Integer.parseInt(request.getParameter("cart_num"));
 		System.out.println("CancleActionController의 cart_num=>"+cart_num);
